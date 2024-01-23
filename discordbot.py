@@ -1,32 +1,41 @@
-from cmath import log
-from distutils.sysconfig import PREFIX
+from selenium.webdriver.chrome.options import *
+from selenium import webdriver
+from discord.ext import commands
 import discord
-from dotenv import load_dotenv
-import os
-load_dotenv()
+import requests
+from bs4 import BeautifulSoup
+import time
 
-PREFIX = os.environ['PREFIX']
-TOKEN = os.environ['TOKEN']
+bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
-client = discord.Client()
-
-@client.event
-async def on_ready():
-    print(f'Logged in as {client.user}.')
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content == f'{PREFIX}call':
-        await message.channel.send("callback!")
-
-    if message.content.startswith(f'{PREFIX}hello'):
-        await message.channel.send('Hello!')
+@bot.command()
+async def 유저(ctx, *, nickname):
+    # Selenium 웹 드라이버 설정
+    options = Options()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(options=options)
+  # 웹드라이버 경로에는 실제 웹드라이버 파일의 경로를 입력해야 합니다.
+ 
+    # 검색 페이지 URL
+    search_url = 'https://barracks.sa.nexon.com/search'
+    
+    # 검색 페이지로 이동
+    driver.get(search_url)
 
 
-try:
-    client.run(TOKEN)
-except discord.errors.LoginFailure as e:
-    print("Improper token has been passed.")
+  
+    # 검색 결과 URL 추출
+    result_url = driver.current_url
+
+  
+
+    # 디스코드에 정보 전송
+    await ctx.send(result_url)
+
+    driver.quit()
+
+
+
+
+bot.run('MTE5ODkwMTkxNTY4MjA5MTAzOQ.GtvhWf.mSMzs3DNxw6Z1v6D-ypNF4PV1EfyqMLjni3wNQ')
+

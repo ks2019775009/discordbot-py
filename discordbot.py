@@ -44,5 +44,5 @@ async def 유저(ctx, *, nickname):
 
 
 
-bot.run('MTE5ODkwMTkxNTY4MjA5MTAzOQ.GTB5Cj.mIslwKXq_H3PctW28gtdDd_V8NBHSNnAnCQLvw')
+bot.run('MTE5ODkwMTkxNTY4MjA5MTAzOQ.GMufKO.gP2z7EbXtvAc5h-f-clgQx0hmZetwiihacHw4k')
 

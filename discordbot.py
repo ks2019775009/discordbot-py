@@ -8,6 +8,13 @@ import time
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
+@bot.event
+async def on_ready():
+    print('다음으로 로그인합니다: ')
+    print(bot.user.name)
+    print('connection was succesful')
+    await bot.change_presence(status=discord.Status.online, activity=None)
+
 @bot.command()
 async def 유저(ctx, *, nickname):
     # Selenium 웹 드라이버 설정
@@ -37,5 +44,5 @@ async def 유저(ctx, *, nickname):
 
 
 
-bot.run('MTE5ODkwMTkxNTY4MjA5MTAzOQ.GtvhWf.mSMzs3DNxw6Z1v6D-ypNF4PV1EfyqMLjni3wNQ')
+bot.run('MTE5ODkwMTkxNTY4MjA5MTAzOQ.GTB5Cj.mIslwKXq_H3PctW28gtdDd_V8NBHSNnAnCQLvw')
 

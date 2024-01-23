@@ -7,6 +7,10 @@ from bs4 import BeautifulSoup
 import time
 import os
 
+token = os.environ['BOT_TOKEN']
+
+
+
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
 @bot.event
@@ -36,6 +40,6 @@ async def 유저(ctx, *, nickname):
     await ctx.send(result_url)
     driver.quit()
 
-token = os.environ["BOT_TOKEN"]
+
 bot.run(token)
 

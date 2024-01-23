@@ -2,8 +2,6 @@ from selenium.webdriver.chrome.options import *
 from selenium import webdriver
 from discord.ext import commands
 import discord
-import requests
-from bs4 import BeautifulSoup
 import time
 import os
 

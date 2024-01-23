@@ -5,6 +5,7 @@ import discord
 import requests
 from bs4 import BeautifulSoup
 import time
+import os
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
@@ -28,21 +29,13 @@ async def 유저(ctx, *, nickname):
     
     # 검색 페이지로 이동
     driver.get(search_url)
-
-
   
     # 검색 결과 URL 추출
     result_url = driver.current_url
-
-  
-
     # 디스코드에 정보 전송
     await ctx.send(result_url)
-
     driver.quit()
 
-
-
-
-bot.run('MTE5ODkwMTkxNTY4MjA5MTAzOQ.GMufKO.gP2z7EbXtvAc5h-f-clgQx0hmZetwiihacHw4k')
+token = os.environ["BOT_TOKEN"]
+bot.run(token)
 

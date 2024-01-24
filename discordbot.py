@@ -31,6 +31,7 @@ async def 유저(ctx, *, nickname):
     
     # 검색 페이지로 이동
     driver.get(search_url)
+    time.sleep(10)
   
     # 검색 결과 URL 추출
     result_url = driver.current_url
